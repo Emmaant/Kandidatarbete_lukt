@@ -29,4 +29,6 @@ void loop() {
   Serial.print(sensorvalue1);
   Serial.println();    // Make csv file
 
+  delay(freq);
+
 }
