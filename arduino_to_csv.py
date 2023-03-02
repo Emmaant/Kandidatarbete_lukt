@@ -1,47 +1,35 @@
 
 
-import serial
-
+import serial 
 import csv
-
 samples = 15
 arduino = '/dev/cu.usbmodem14201'
 baud = 9600
 series = serial.Serial(arduino,baud)
 
 
-#print_label = False'
-
 filename = 'sensordata.csv'
 
-file = open(filename,'a')
-print('File created')
+# Open serial port
+series = serial.Serial(arduino, baud)
 
-row = 0
-sensordata = []
-while row <= samples:
-
-    line=series.readline()
-    dataString = line.decode('utf-8')
-
-    data=dataString[0:][:-1]
-    print(data)
-
-    read = data.split(",")
-    print(read)
-
-    sensordata.append(read)
-    print(sensordata)
-
-    row = row+1
+# Open CSV file in append mode
+filename = 'sensordata.csv'
+with open(filename, 'a', newline='') as f:
+    writer = csv.writer(f)
+    
+    # Read sensor data from the Arduino and append to the CSV file
+    for i in range(samples):
+        line = series.readline()
+        dataString = line.decode('utf-8')
+        
+        values = dataString.strip().split(',')
+        
+        writer.writerow(values)
 
 
-with open(filename, 'w', encoding='UTF8', newline='') as f:
-    write = csv.writer(f)
-    write.writerows(sensordata)
-
+series.close()
 print("Collection of data done!")
-file.close()
 
 
 
