@@ -2,12 +2,16 @@
 
 import serial
 
-arduino = '/dev/cu/.usbmodem14201'
+import csv
+
+samples = 15
+arduino = '/dev/cu.usbmodem14201'
 baud = 9600
 series = serial.Serial(arduino,baud)
 
-samples = 15
-print_label = False
+
+#print_label = False'
+
 filename = 'sensordata.csv'
 
 file = open(filename,'a')
@@ -32,7 +36,7 @@ while row <= samples:
     row = row+1
 
 
-with open(fileName, 'w', encoding='UTF8', newline='') as f:
+with open(filename, 'w', encoding='UTF8', newline='') as f:
     write = csv.writer(f)
     write.writerows(sensordata)
 
