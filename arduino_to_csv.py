@@ -1,6 +1,7 @@
 
 
 import serial 
+
 import csv
 samples = 15
 arduino = '/dev/cu.usbmodem14201'
@@ -20,7 +21,9 @@ with open(filename, 'a', newline='') as f:
     
     # Read sensor data from the Arduino and append to the CSV file
     for i in range(samples):
+        
         line = series.readline()
+        print(line)
         dataString = line.decode('utf-8')
         
         values = dataString.strip().split(',')
