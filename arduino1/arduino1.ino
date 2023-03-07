@@ -4,7 +4,7 @@ int sensor1 = A0;
 String label1 = "sensor1";
 
 
-int freq = 1000; //Collect data every 1000 ms
+int freq = 100; //Collect data every 100 ms
 int sensorvalue1;
 bool start = true; 
 
