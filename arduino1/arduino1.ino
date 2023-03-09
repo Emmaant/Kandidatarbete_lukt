@@ -8,8 +8,6 @@ int freq = 100; //Collect data every 100 ms
 int sensorvalue1;
 bool start = true; 
 
-//test
-
 
 void setup() {
   // initialize serial communications at 9600 bps:
