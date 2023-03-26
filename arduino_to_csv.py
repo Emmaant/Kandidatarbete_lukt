@@ -12,15 +12,14 @@ arduino = '/dev/cu.usbmodem14201'
 baud = 9600
 series = serial.Serial(arduino,baud)
 
-
-
 # Open CSV file in append mode
 filename = 'sensordata.csv'
 
 # Initialize numpy array to store sensor data
 data = np.zeros(samples)
-
 start_time = time.time()
+
+row = []
 
 # Collect sensor data from the Arduino
 for i in range(samples):
@@ -30,11 +29,11 @@ for i in range(samples):
     data[i] = int(values[0])
 
 # Calculate mean value and print to console
-meanValue = np.mean(data)
+row.append(np.mean(data))
 
 with open(filename, 'a', newline='') as f:
     writer = csv.writer(f)
-    writer.writerow(data)
+    writer.writerow(row)
 
 series.close()
 print("--- %s seconds ---" % (time.time() - start_time))
