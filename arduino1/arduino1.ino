@@ -14,10 +14,10 @@ String label4 = "sensor4";
 
 
 int freq = 10; //Collect data every 100 ms
-int sensorvalue1;
-int sensorvalue2;
-int sensorvalue3;
-int sensorvalue4;
+int sensorValue1;
+int sensorValue2;
+int sensorValue3;
+int sensorValue4;
 
 
 
@@ -44,13 +44,13 @@ void loop() {
   //float	voltage	=	sensorvalue1	*	5.0;
   //voltage	/=1024.0;	 
   //threshold?
-  Serial.print(sensorvalue1);
+  Serial.print(sensorValue1);
   Serial.print(',');
-  Serial.print(sensorvalue2);
+  Serial.print(sensorValue2);
   Serial.print(',');
-  Serial.print(sensorvalue3);
+  Serial.print(sensorValue3);
   Serial.print(',');
-  Serial.print(sensorvalue4);
+  Serial.print(sensorValue4);
   
   Serial.println();    
 
