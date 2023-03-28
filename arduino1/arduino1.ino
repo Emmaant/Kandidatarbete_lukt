@@ -43,6 +43,7 @@ void loop() {
   //threshold?
   Serial.print(sensorValue1);
   Serial.print(", ");
+  //kommaseparera
   Serial.print(sensorValue2);
   Serial.print(", ");
   Serial.print(sensorValue3);
